@@ -53,7 +53,7 @@ function checkAnswer(currentLevel) {
             score = level - 1;
         }
    
-        $("#level-title").html(" <span id='over'>Game Over!</span> <br><span id='restart'>Tap to Restart </span> <br> <span id='score'>Score:" +"</span>"+ score  );
+        $("#level-title").html(" <span id='over'>Game Over!</span> <br><span id='restart'>Tap to Restart </span> <br> <span id='score'>Score:" +"</span> <br>"+ score  );
         $("#score").css("color", "black");
         $("#restart").css("font-size", "0.5em");
         
