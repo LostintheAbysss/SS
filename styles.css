@@ -77,3 +77,18 @@ footer{
   margin: 0%;
   padding: 0%;
 }
+/* button  */
+#retry{
+   background-color: #FEF2BF;
+   font-family: 'Press Start 2P', cursive;
+   padding: 1em;
+   justify-content: center;
+   font-weight: 900;
+   border: 5px solid #001022;
+  
+}
+/* text */
+#restart{
+  display: inline-block;
+  padding: 15px;
+}
