@@ -5,6 +5,7 @@ var userClickedPattern = [];
 
 var started = false;
 var level = 0;
+retry.style.display = "none";
 
 $(document).on('keypress touchstart', function () {
     if (!started) {
@@ -56,8 +57,11 @@ function checkAnswer(currentLevel) {
         $("#level-title").html(" <span id='over'>Game Over!</span> <br><span id='restart'>Tap to Restart </span> <br> <span id='score'>Score:" +"</span> <br>"+ score  );
         $("#score").css("color", "black");
         $("#restart").css("font-size", "0.5em");
-        
-        startOver();
+        //retry button
+        retry.style.display = "inline";
+        $("#retry").click(function(){
+            location.reload();
+        })
     }
 }
 function nextSequence() {
