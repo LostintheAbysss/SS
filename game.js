@@ -1,13 +1,16 @@
+//pop-ups
+var alertShown = localStorage.getItem("alertShown");
+if (!alertShown) {
+    alert("v.0.2.5 is the final update ,there will no longer be any updates or maintenance due to random caching errors, the game is reverted back to v.0.2.3 (stable version), if you wish to play v.0.2.4 which includes ~ 1.HighScore count 2. Start failure prevention  3. Fixed Spam glitch 4. Desktop and Mobile compatibity 5.Fancy animations , contact for gamefile. This Update includes ~ 1. One time POP-UPS + v.0.2.3 | Thank You For Playing! ");
+    localStorage.setItem("alertShown", true);
+}
 var buttonColors = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
 var userClickedPattern = [];
- alert("v.0.2.4 is not working as Intended on mobile phones, please check back later when issue is resovled")
+
 var started = false;
 var level = 0;
-let score = 0;
-let highScore = localStorage.getItem("highScore");
-var isGameOver = false; 
 retry.style.display = "none";
 
 $(document).on('keypress touchstart', function () {
@@ -15,14 +18,12 @@ $(document).on('keypress touchstart', function () {
         $("#level-title").text("Level " + level);
         nextSequence();
         started = true;
-        isGameOver = false; 
-        
+
     }
 
 });
 
-$(".btn").on("mousedown touchstart" ,function () {
-
+$(".btn").click(function () {
     var userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
 
@@ -32,7 +33,7 @@ $(".btn").on("mousedown touchstart" ,function () {
     checkAnswer(userClickedPattern.length - 1);
 });
 
-function checkAnswer(currentLevel) {  
+function checkAnswer(currentLevel) {
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
 
         console.log("success");
@@ -44,6 +45,7 @@ function checkAnswer(currentLevel) {
             }, 1000);
 
         }
+
     } else {
         playSound("wrong")
 
@@ -53,36 +55,24 @@ function checkAnswer(currentLevel) {
         }, 200);
 
         console.log("wrong");
-        //score 
+        let score = 0;
         if (level > 0){
             score = level - 1;
-        }  
-
-        //high score 
-        if (highScore === null || score > parseInt(highScore)){
-            highScore = localStorage.setItem("highScore", score);
-            highScore = score;
         }
-        
-        let displayHighScore = localStorage.getItem("highScore");
-               
-        
    
-        $("#level-title").html(" <span id='over'>Game Over!</span> <br><span id='restart'>Tap to Restart </span> <br> <span id='score'>Score:" +"</span> <br> "+ score + " <br> <span id='hs'>HS</span>:" +"<span id='HSNumber'>" + displayHighScore + "</span>"  );
+        $("#level-title").html(" <span id='over'>Game Over!</span> <br><span id='restart'>Tap to Restart </span> <br> <span id='score'>Score:" +"</span> <br>"+ score  );
+        $("#score").css("color", "black");
         $("#restart").css("font-size", "0.5em");
-
-        retry.style.display = "inline";          
+        //retry button
+        retry.style.display = "inline";
         $("#retry").click(function(){
-            setTimeout(function () {
-                location.reload();
-            }, 50);
-
-        }) 
-    } 
+            location.reload();
+        })
+    }
 }
 function nextSequence() {
-   
     userClickedPattern = [];
+
     var randomNumber = Math.floor(Math.random() * 4)
     var randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
@@ -92,14 +82,14 @@ function nextSequence() {
 
     level++;
     $("#level-title").text("Level " + level)
-     
+
 
 }
 
 function playSound(name) {
     var audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
-}  
+}
 
 function animatePress(currentColour) {
     $("#" + currentColour).addClass("pressed");
