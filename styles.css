@@ -92,3 +92,23 @@ footer{
   display: inline-block;
   padding: 15px;
 }
+/* highScore animation  */
+#hs , #HSNumber{
+  background: linear-gradient(
+    to right,
+    #ce821f 20%, #FF9000 30%, #FDDA16 70%, #FFEE82 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 1s ease-in-out infinite alternate;
+    }
+    @keyframes textShine {
+      0% {
+          background-position: 0% 50%;
+      }
+      100% {
+          background-position: 100% 50%;
+      }
+  }
