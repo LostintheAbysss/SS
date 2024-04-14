@@ -22,7 +22,6 @@ $(document).on('keypress touchstart', function () {
 });
 
 $(".btn").on("mousedown touchstart" ,function () {
-    if (isGameOver) return;
 
     var userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
@@ -34,7 +33,6 @@ $(".btn").on("mousedown touchstart" ,function () {
 });
 
 function checkAnswer(currentLevel) {  
-    if (isGameOver) return;
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
 
         console.log("success");
@@ -80,7 +78,6 @@ function checkAnswer(currentLevel) {
             }, 50);
 
         }) 
-        isGameOver = true; 
     } 
 }
 function nextSequence() {
