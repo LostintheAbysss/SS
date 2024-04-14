@@ -2,7 +2,7 @@ var buttonColors = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
 var userClickedPattern = [];
- 
+ alert("v.0.2.4 is not working as Intended on mobile phones, please check back later when issue is resovled")
 var started = false;
 var level = 0;
 let score = 0;
