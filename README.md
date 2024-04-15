@@ -1,5 +1,5 @@
 REF: The Numbers beside the "issues" shows the criticality of the issue , while 1 = small annoyance and 10 = Unplayble 
-
+ 
 v.0.1
 ~ Release for Deskstop 
 issues: Not compatible with Phones (4/10)
